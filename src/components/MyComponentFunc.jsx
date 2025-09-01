@@ -7,6 +7,9 @@ const MyComponentFunc = ({ name, children }) => {
         message: '',
         username: '',
     });
+
+        const { valid, setValid } = useState(false);
+
     const { message, username } = inputs;
 
     //event handlers
