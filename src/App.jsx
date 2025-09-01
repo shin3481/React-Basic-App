@@ -3,8 +3,7 @@ const App = () => {
   return (
     <>
       <MyComponent name="ReactJS" />
-      <MyComponent />
-
+      <MyComponent age={100}/>
 
     </>
   );
