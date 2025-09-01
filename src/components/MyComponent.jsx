@@ -22,11 +22,16 @@ class MyComponent extends Component {
             [e.target.name]: e.target.value
         })
     }; //handleChange
+
+    handleEnter = (e) =>{
+
+    } //handleEnter
+
     render() {
         //destructuring assigment
         const { name, age } = this.props;
         const { value, message, username, isValid } = this.state;
-        const { handleDecrement, handleChange } = this;
+        const { handleDecrement, handleChange, handleEnter } = this;
         return (
             <div>
                 <h2>클래스 타입 컴포넌트</h2>
@@ -39,10 +44,11 @@ class MyComponent extends Component {
                 <button onClick={handleDecrement}>감소</button>
                 <dr />
                 <p>상태변수 message = {message}</p>
-                <input name="message" value={message} onChange={handleChange} />
+                <input name="message" value={message} onChange={handleChange} onKeyDown={handleEnter} />
                 <p>상태변수 username = {username}</p>
                 <input name="username" value={username} onChange={handleChange} 
                     className={isValid ? 'success' : 'failure'}
+                    ref={(ref) => this.myUsername= ref}
                 />
 
             </div>
