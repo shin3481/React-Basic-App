@@ -2,14 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class MyComponent extends Component {
+    //컴포넌트 내부에 상태변수를 포함하는 state 객체선언
+    state = {
+        value: 0,
+
+    };
+    //event handler 함수선언
     render() {
         //destructuring assigment
         const { name, age } = this.props;
+        const { value } = this.state;
         return (
             <div>
                 <h2>클래스 타입 컴포넌트</h2>
-                <h3>안녕하세요! <b>{name}</b></h3>
-                <p>저는 {age} 살 입니다</p>
+                <h3>안녕하세요! <b>{name} - {age} </b></h3>
+                <p>상태변수 value = {value}</p>
+                <button onClick={() => (
+                    this.setState({ value: value + 1 })
+                )
+                }
+                >증가</button>
+                <button onClick={() => (
+                    this.setState({ value: value - 1})
+                )}>감소</button>
             </div>
         );
     }
