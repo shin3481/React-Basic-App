@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import './MyComponent.css';
 
 const MyComponentFunc = ({ name, children }) => {
     //useState() 함수사용
@@ -8,7 +9,8 @@ const MyComponentFunc = ({ name, children }) => {
         username: '',
     });
 
-        const { valid, setValid } = useState(false);
+    const [valid, setValid] = useState(false);
+    const myUsername = useRef(null);
 
     const { message, username } = inputs;
 
@@ -31,7 +33,10 @@ const MyComponentFunc = ({ name, children }) => {
             <p>상태변수 message = {message}</p>
             <input name="message" value={message} onChange={handleChange} />
             <p>상태변수 username = {username}</p>
-            <input name="username" value={username} onChange={handleChange} />
+            <input name="username" value={username} onChange={handleChange}
+                className={valid ? 'success' : 'failure'}
+                ref={myUsername}
+            />
 
         </div>
     );
