@@ -8,6 +8,13 @@ const MyComponentFunc = ({ name, children }) => {
         username: '',
     });
 const { message, username} = inputs;
+
+//event handlers
+const handleChange = (e) => {
+    setInputs({
+        [e.target.name]: e.target.value
+    });
+}
     return (
         <div>
             <h2>함수형 컴포넌트</h2>
