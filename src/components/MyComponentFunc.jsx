@@ -12,6 +12,7 @@ const MyComponentFunc = ({ name, children }) => {
     //event handlers
     const handleChange = (e) => {
         setInputs({
+            ...inputs,
             [e.target.name]: e.target.value
         });
     }
