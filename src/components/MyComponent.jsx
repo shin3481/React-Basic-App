@@ -5,7 +5,8 @@ class MyComponent extends Component {
     //컴포넌트 내부에 상태변수를 포함하는 state 객체선언
     state = {
         value: 0,
-
+        message: '',
+        username: '',
     };
     //event handler 함수선언
     handleDecrement = () => {
@@ -16,7 +17,8 @@ class MyComponent extends Component {
     render() {
         //destructuring assigment
         const { name, age } = this.props;
-        const { value } = this.state;
+        const { value, message, username } = this.state;
+        const { handleDecrement } = this;
         return (
             <div>
                 <h2>클래스 타입 컴포넌트</h2>
@@ -24,12 +26,13 @@ class MyComponent extends Component {
                 <p>상태변수 value = {value}</p>
                 <button onClick={() => (
                     this.setState({ value: value + 1 })
-                )
-                }
+                )}
                 >증가</button>
-                <button onClick={() => (
-                    this.setState({ value: value - 1})
-                )}>감소</button>
+                <button onClick={handleDecrement}>감소</button>
+                <dr />
+                <p>상태변수 message = {message}</p>
+                <input value={message}/>
+
             </div>
         );
     }
