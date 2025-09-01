@@ -24,7 +24,14 @@ class MyComponent extends Component {
     }; //handleChange
 
     handleEnter = (e) =>{
-
+        if(e.keyCode === 13){
+            this.setState({
+                isValid: true,
+                //첫번쨰 Input 엘리먼트 필드 초기화
+                message: '',
+            });
+            this.myUsername.focus();
+        }
     } //handleEnter
 
     render() {
