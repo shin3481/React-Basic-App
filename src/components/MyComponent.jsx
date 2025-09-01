@@ -9,7 +9,7 @@ class MyComponent extends Component {
         message: '',
         username: '',
         isValid: false,
-        messageArr: ['Angular', 'React', 'Vue', 'Ember'];
+        messageArr: ['Angular', 'React', 'Vue', 'Ember'],
     };
     //event handler 함수선언
     handleDecrement = () => {
