@@ -9,6 +9,7 @@ class MyComponent extends Component {
         message: '',
         username: '',
         isValid: false,
+        messageArr: ['Angular', 'React', 'Vue', 'Ember'];
     };
     //event handler 함수선언
     handleDecrement = () => {
@@ -18,13 +19,13 @@ class MyComponent extends Component {
     };
     handleChange = (e) => {
         this.setState({
-            
+
             [e.target.name]: e.target.value
         })
     }; //handleChange
 
-    handleEnter = (e) =>{
-        if(e.keyCode === 13){
+    handleEnter = (e) => {
+        if (e.keyCode === 13) {
             this.setState({
                 isValid: true,
                 //첫번쨰 Input 엘리먼트 필드 초기화
@@ -37,8 +38,9 @@ class MyComponent extends Component {
     render() {
         //destructuring assigment
         const { name, age } = this.props;
-        const { value, message, username, isValid } = this.state;
+        const { value, message, username, isValid, messageArr } = this.state;
         const { handleDecrement, handleChange, handleEnter } = this;
+        const messageList = messageArr.map();
         return (
             <div>
                 <h2>클래스 타입 컴포넌트</h2>
@@ -52,10 +54,14 @@ class MyComponent extends Component {
                 <dr />
                 <p>상태변수 message = {message}</p>
                 <input name="message" value={message} onChange={handleChange} onKeyDown={handleEnter} />
+                <dr />
+                <ul>
+                    {messageList}
+                </ul>
                 <p>상태변수 username = {username}</p>
-                <input name="username" value={username} onChange={handleChange} 
+                <input name="username" value={username} onChange={handleChange}
                     className={isValid ? 'success' : 'failure'}
-                    ref={(ref) => this.myUsername= ref}
+                    ref={(ref) => this.myUsername = ref}
                 />
 
             </div>
