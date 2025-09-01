@@ -8,6 +8,11 @@ class MyComponent extends Component {
 
     };
     //event handler 함수선언
+    handleDecrement = () => {
+        this.setState({
+            value: this.state.value - 1
+        });
+    };
     render() {
         //destructuring assigment
         const { name, age } = this.props;
